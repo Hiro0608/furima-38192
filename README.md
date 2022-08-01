@@ -12,12 +12,12 @@
 | first_name_kana    | string              | null: false               |
 | family_name_kana   | string              | null: false               |
 
-
 ### Association
 
 * has_many :items
 * has_one  :profiles
-* has_one  :credit_cards
+* has_one  :
+
 
 ## items table 
 
@@ -35,17 +35,28 @@
 | trading_status                      | integer    | null: false                    |
 | seller                              | references | null: false                    |
 | buyer                               | references | null: false                    |
-| user_id                             | references | null: false, foreign_key: true |
 
 ### Association
 
 - belongs_to :user
 
+
 ## profiles table
 
 | Column             | Type                | Options                        |
 |--------------------|---------------------|--------------------------------|
-| first_name         | string              | null: false                    |
+| user_id            | string              | null: false                    |
+| item_id            | string              | null: false                    |
+
+### Association
+
+- belongs_to :user
+
+
+## user_items table
+
+| Column             | Type                | Options                        |
+|--------------------|---------------------|--------------------------------|
 | family_name        | string              | null: false                    |
 | first_name_kana    | string              | null: false                    |
 | family_name_kana   | string              | null: false                    |
@@ -55,19 +66,6 @@
 | building_name      | string              | null: false                    |
 | phone_number       | string              | null: false, unique: true      |
 | birth_date         | date                | null: false                    |
-| user_id            | references          | null: false, foreign_key: true |
-
-### Association
-
-- belongs_to :user
-
-## credit_cards table
-
-| Column      | Type       | Options                        |
-|-------------|------------|--------------------------------|
-| user_id     | references | null: false, foreign_key: true |
-| customer_id | string     | null: false                    |
-| card_id     | string     | null: false                    |
 
 ### Association
 
