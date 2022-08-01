@@ -16,7 +16,7 @@
 
 * has_many :items
 * has_one  :profiles
-* has_one  :
+* has_one  :user_items
 
 
 ## items table 
