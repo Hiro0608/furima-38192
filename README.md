@@ -23,15 +23,15 @@
 
 | Column                              | Type       | Options                        |
 |-------------------------------------|------------|--------------------------------|
-| name_id                             | status     | null: false                    |
-| price                               | integer    | null: false                    |
-| introduction                        | text       | null: false                    |
-| seller_id                           | integer    | null: false                    |
-| category                            | integer    | null: false                    |
-| status                              | integer    | null: false                    |
-| trading_price                       | integer    | null: false                    |
-| trading_area                        | integer    | null: false                    |
-| trading_days                        | integer    | null: false                    |
+| name                                | string     | null: false                    |
+| price                               | string     | null: false                    |
+| introduction                        | string     | null: false                    |
+| seller_id                           | string     | null: false                    |
+| category                            | string     | null: false                    |
+| status                              | string     | null: false                    |
+| trading_price                       | string     | null: false                    |
+| trading_area                        | string     | null: false                    |
+| trading_days                        | string     | null: false                    |
 
 ### Association
 
@@ -60,7 +60,7 @@
 | post_code          | string              | null: false                    |
 | city               | integer             | null: false                    |
 | house_humber       | string              | null: false                    |
-| building_name      | string              |                                |
+| building_name      | string              | null: false                    |
 | phone_number       | string              | null: false, unique: true      |
 
 ### Association
