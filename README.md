@@ -26,12 +26,12 @@
 | name                                | string     | null: false                    |
 | price                               | integer    | null: false                    |
 | introduction                        | text       | null: false                    |
-| seller                              | references | null: false                    |
-| category_id                         | references | null: false                    |
-| status_id                           | references | null: false                    |
-| trading_price_id                    | references | null: false                    |
-| trading_area_id                     | references | null: false                    |
-| trading_days_id                     | references | null: false                    |
+| user                                | references | null: false                    |
+| category_id                         | integer    | null: false                    |
+| status_id                           | integer    | null: false                    |
+| trading_price_id                    | integer    | null: false                    |
+| trading_area_id                     | integer    | null: false                    |
+| trading_days_id                     | integer    | null: false                    |
 
 ### Association
 
