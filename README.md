@@ -16,7 +16,7 @@
 ### Association
 
 * has_many :items
-* has_many :order
+* has_many :orders
 
 
 ## items table 
@@ -24,10 +24,9 @@
 | Column                              | Type       | Options                        |
 |-------------------------------------|------------|--------------------------------|
 | name_id                             | status     | null: false                    |
-| image                               | image      | null: false                    |
 | price                               | integer    | null: false                    |
 | introduction                        | text       | null: false                    |
-| seller                              | references | null: false                    |
+| seller_id                           | integer    | null: false                    |
 | category                            | integer    | null: false                    |
 | status                              | integer    | null: false                    |
 | trading_price                       | integer    | null: false                    |
@@ -51,7 +50,7 @@
 
 - belongs_to :user
 - belongs_to :item
-- belongs_to :address
+- has_one :address
 
 
 ## addresses table
@@ -59,7 +58,7 @@
 | Column             | Type                | Options                        |
 |--------------------|---------------------|--------------------------------|
 | post_code          | string              | null: false                    |
-| city               | string              | null: false                    |
+| city               | integer             | null: false                    |
 | house_humber       | string              | null: false                    |
 | building_name      | string              |                                |
 | phone_number       | string              | null: false, unique: true      |
