@@ -26,12 +26,12 @@
 | name                                | string     | null: false                    |
 | price                               | integer    | null: false                    |
 | introduction                        | text       | null: false                    |
-| seller_id                           | references | null: false                    |
-| category                            | integer    | null: false                    |
-| status                              | integer    | null: false                    |
-| trading_price                       | integer    | null: false                    |
-| trading_area                        | integer    | null: false                    |
-| trading_days                        | integer    | null: false                    |
+| seller                              | references | null: false                    |
+| category_id                         | references | null: false                    |
+| status_id                           | references | null: false                    |
+| trading_price_id                    | references | null: false                    |
+| trading_area_id                     | references | null: false                    |
+| trading_days_id                     | references | null: false                    |
 
 ### Association
 
@@ -63,7 +63,7 @@
 | house_number       | string              | null: false                    |
 | building_name      | string              |                                |
 | phone_number       | string              | null: false                    |
-| buying_history     | references          | null: false, foreign_key: true |
+| order              | references          | null: false, foreign_key: true |
 
 ### Association
 
