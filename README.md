@@ -15,8 +15,8 @@
 ### Association
 
 * has_many :items
-* has_one  :profiles
-* has_one  :user_items
+* has_one  :order
+* has_one  :addresses
 
 
 ## items table 
@@ -26,22 +26,16 @@
 | name                                | string     | null: false                    |
 | introduction                        | text       | null: false                    |
 | price                               | integer    | null: false                    |
-| brand                               | integer    | null: false                    |
-| item_condition                      | integer    | null: false                    |
-| postage_payer                       | integer    | null: false                    |
-| preparation_day                     | integer    | null: false                    |
-| postage_type                        | integer    | null: false                    |
-| category                            | integer    | null: false                    |
-| trading_status                      | integer    | null: false                    |
-| seller                              | references | null: false                    |
-| buyer                               | references | null: false                    |
+| status                              | integer    | null: false                    |
+| size                                | integer    | null: false                    |
+| days                                | integer    | null: false                    |
 
 ### Association
 
 - belongs_to :user
 
 
-## profiles table
+## order table
 
 | Column             | Type                | Options                        |
 |--------------------|---------------------|--------------------------------|
@@ -53,10 +47,11 @@
 - belongs_to :user
 
 
-## user_items table
+## addresses table
 
 | Column             | Type                | Options                        |
 |--------------------|---------------------|--------------------------------|
+| first_name         | string              | null: false                    |
 | family_name        | string              | null: false                    |
 | first_name_kana    | string              | null: false                    |
 | family_name_kana   | string              | null: false                    |
