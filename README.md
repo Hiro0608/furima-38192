@@ -1,24 +1,70 @@
-# README
+# DB 設計
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## users table
 
-Things you may want to cover:
+| Column             | Type                | Options                   |
+|--------------------|---------------------|---------------------------|
+| email              | string              | null: false, unique: true |
+| encrypted_password | string              | null: false               |
+| nickname           | string              | null: false               |
+| first_name         | string              | null: false               |
+| family_name        | string              | null: false               |
+| first_name_kana    | string              | null: false               |
+| family_name_kana   | string              | null: false               |
+| birth_date         | date                | null: false               |
 
-* Ruby version
+### Association
 
-* System dependencies
+* has_many :items
+* has_many :orders
 
-* Configuration
 
-* Database creation
+## items table 
 
-* Database initialization
+| Column                              | Type       | Options                        |
+|-------------------------------------|------------|--------------------------------|
+| name                                | string     | null: false                    |
+| price                               | integer    | null: false                    |
+| introduction                        | text       | null: false                    |
+| user                                | references | null: false                    |
+| category_id                         | integer    | null: false                    |
+| status_id                           | integer    | null: false                    |
+| trading_price_id                    | integer    | null: false                    |
+| trading_area_id                     | integer    | null: false                    |
+| trading_days_id                     | integer    | null: false                    |
 
-* How to run the test suite
+### Association
 
-* Services (job queues, cache servers, search engines, etc.)
+- belongs_to :user
+- has_one :order
 
-* Deployment instructions
 
-* ...
+## order table
+
+| Column             | Type                | Options                        |
+|--------------------|---------------------|--------------------------------|
+| user               | references          | null: false, foreign_key: true |
+| item               | references          | null: false, foreign_key: true |
+
+### Association
+
+- belongs_to :user
+- belongs_to :item
+- has_one :address
+
+
+## addresses table
+
+| Column             | Type                | Options                        |
+|--------------------|---------------------|--------------------------------|
+| post_code          | string              | null: false                    |
+| trading_area_id    | references          | null: false                    |
+| city               | string              | null: false                    |
+| house_number       | string              | null: false                    |
+| building_name      | string              |                                |
+| phone_number       | string              | null: false                    |
+| order              | references          | null: false, foreign_key: true |
+
+### Association
+
+- belongs_to :order
