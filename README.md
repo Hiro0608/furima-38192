@@ -11,57 +11,59 @@
 | family_name        | string              | null: false               |
 | first_name_kana    | string              | null: false               |
 | family_name_kana   | string              | null: false               |
+| birth_date         | date                | null: false               |
 
 ### Association
 
 * has_many :items
-* has_one  :order
-* has_one  :addresses
+* has_many :order
 
 
 ## items table 
 
 | Column                              | Type       | Options                        |
 |-------------------------------------|------------|--------------------------------|
-| name                                | string     | null: false                    |
-| introduction                        | text       | null: false                    |
+| name_id                             | status     | null: false                    |
+| image                               | image      | null: false                    |
 | price                               | integer    | null: false                    |
+| introduction                        | text       | null: false                    |
+| seller                              | references | null: false                    |
+| category                            | integer    | null: false                    |
 | status                              | integer    | null: false                    |
-| size                                | integer    | null: false                    |
-| days                                | integer    | null: false                    |
+| trading_price                       | integer    | null: false                    |
+| trading_area                        | integer    | null: false                    |
+| trading_days                        | integer    | null: false                    |
 
 ### Association
 
 - belongs_to :user
+- belongs_to :order
 
 
 ## order table
 
 | Column             | Type                | Options                        |
 |--------------------|---------------------|--------------------------------|
-| user_id            | string              | null: false                    |
-| item_id            | string              | null: false                    |
+| user               | references          | null: false, foreign_key: true |
+| item               | references          | null: false, foreign_key: true |
 
 ### Association
 
 - belongs_to :user
+- belongs_to :item
+- belongs_to :address
 
 
 ## addresses table
 
 | Column             | Type                | Options                        |
 |--------------------|---------------------|--------------------------------|
-| first_name         | string              | null: false                    |
-| family_name        | string              | null: false                    |
-| first_name_kana    | string              | null: false                    |
-| family_name_kana   | string              | null: false                    |
 | post_code          | string              | null: false                    |
 | city               | string              | null: false                    |
 | house_humber       | string              | null: false                    |
-| building_name      | string              | null: false                    |
+| building_name      | string              |                                |
 | phone_number       | string              | null: false, unique: true      |
-| birth_date         | date                | null: false                    |
 
 ### Association
 
-- belongs_to :user
+- belongs_to :order
