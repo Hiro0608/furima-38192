@@ -24,14 +24,14 @@
 | Column                              | Type       | Options                        |
 |-------------------------------------|------------|--------------------------------|
 | name                                | string     | null: false                    |
-| price                               | string     | null: false                    |
-| introduction                        | string     | null: false                    |
-| seller_id                           | string     | null: false                    |
-| category                            | string     | null: false                    |
-| status                              | string     | null: false                    |
-| trading_price                       | string     | null: false                    |
-| trading_area                        | string     | null: false                    |
-| trading_days                        | string     | null: false                    |
+| price                               | integer    | null: false                    |
+| introduction                        | text       | null: false                    |
+| seller_id                           | references | null: false                    |
+| category                            | integer    | null: false                    |
+| status                              | integer    | null: false                    |
+| trading_price                       | integer    | null: false                    |
+| trading_area                        | integer    | null: false                    |
+| trading_days                        | integer    | null: false                    |
 
 ### Association
 
@@ -58,10 +58,12 @@
 | Column             | Type                | Options                        |
 |--------------------|---------------------|--------------------------------|
 | post_code          | string              | null: false                    |
-| city               | integer             | null: false                    |
-| house_humber       | string              | null: false                    |
-| building_name      | string              | null: false                    |
-| phone_number       | string              | null: false, unique: true      |
+| prefecture         | integer             | null: false                    |
+| city               | string              | null: false                    |
+| house_number       | string              | null: false                    |
+| building_name      | string              |                                |
+| phone_number       | string              | null: false                    |
+| buying_history     | references          | null: false, foreign_key: true |
 
 ### Association
 
