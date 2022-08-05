@@ -5,6 +5,9 @@ RSpec.describe User, type: :model do
     @user = FactoryBot.build(:user)
   end
   describe 'ユーザー新規登録' do
+    it "nickname,email,password,password_confirmation,family_name,family_name_kana,first_name,first_name_kana,birth_dateが存在すれば登録できる" do
+      expect(@user).to be_valid
+    end
     it 'nicknameが空では登録できない' do
       @user.nickname = ''
       @user.valid?
@@ -90,7 +93,7 @@ RSpec.describe User, type: :model do
       expect(@user.errors.full_messages).to include("First name kana is invalid")
     end
     it "first_name_kanaにカタカナ以外の文字（平仮名・漢字・英数字・記号）が含まれていると登録できないこと" do
-      @user.first_name_kana = 'あ愛1$'
+      @user.first_name_kana = 'あ愛1$' 
       @user.valid?
       expect(@user.errors.full_messages).to include("First name kana is invalid")
     end
