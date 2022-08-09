@@ -56,6 +56,51 @@ RSpec.describe Item, type: :model do
         @item.valid?
         expect(@item.errors.full_messages).to include("Trading days can't be blank")
       end
+      it "カテゴリーに「---」が選択されている場合は出品できない" do
+        @item.category_id = '1'
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Category can't be blank")
+      end
+      it "商品の状態に「---」が選択されている場合は出品できない" do
+        @item.status_id = '1'
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Status can't be blank")
+      end
+      it "配送料の負担に「---」が選択されている場合は出品できない" do
+        @item.trading_price_id = '1'
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Trading price can't be blank")
+      end
+      it "発送元の地域に「---」が選択されている場合は出品できない" do
+        @item.trading_area_id = '1'
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Trading area can't be blank")
+      end
+      it "発送までの日数に「---」が選択されている場合は出品できない" do
+        @item.trading_days_id = '1'
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Trading days can't be blank")
+      end
+      it "userが紐付いていない場合は登録できない" do
+        @item.user = nil
+        @item.valid?
+        expect(@item.errors.full_messages).to include("User must exist")
+      end
+      it "価格に半角数字以外が含まれている場合は出品できない" do
+        @item.price = ''
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Price can't be blank")
+      end
+      it "価格が300円未満では出品できない" do
+        @item.price = 299
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Price must be greater than or equal to 300")
+      end
+      it "価格が9_999_999円を超えると出品できない" do
+        @item.price = 10_000_000
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Price must be less than or equal to 9999999")
+      end
     end
   end
 end

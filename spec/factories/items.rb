@@ -9,8 +9,8 @@ FactoryBot.define do
     trading_area_id       {"2"} 
     trading_days_id       {"2"}  
     association :user
-    after(:build) do |message|
-      message.image.attach(io: File.open('public/images/test_image.jpeg'), filename: 'test_image.jpeg')
+    after(:build) do |item|
+      item.image.attach(io: File.open('public/images/test_image.jpeg'), filename: 'test_image.jpeg')
     end
   end
 end
