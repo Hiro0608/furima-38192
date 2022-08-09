@@ -26,7 +26,7 @@
 | name                                | string     | null: false                    |
 | price                               | integer    | null: false                    |
 | introduction                        | text       | null: false                    |
-| user                                | references | null: false                    |
+| user                                | references | foreign_key: true              |
 | category_id                         | integer    | null: false                    |
 | status_id                           | integer    | null: false                    |
 | trading_price_id                    | integer    | null: false                    |
