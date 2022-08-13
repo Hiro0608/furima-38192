@@ -42,12 +42,12 @@ ActiveRecord::Schema.define(version: 2022_08_08_053749) do
     t.string "name", null: false
     t.integer "price", null: false
     t.text "introduction", null: false
-    t.bigint "user_id", null: false
+    t.bigint "user_id"
     t.integer "category_id", null: false
     t.integer "status_id", null: false
     t.integer "trading_price_id", null: false
     t.integer "trading_area_id", null: false
-    t.integer "trading_days_id", null: false
+    t.integer "trading_day_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_items_on_user_id"
@@ -92,4 +92,5 @@ ActiveRecord::Schema.define(version: 2022_08_08_053749) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "items", "users"
 end
