@@ -18,5 +18,5 @@ class Item < ApplicationRecord
   validates :status_id, numericality: { other_than: 1 , message: "can't be blank"} 
   validates :trading_price_id, numericality: { other_than: 1 , message: "can't be blank"} 
   validates :trading_area_id, numericality: { other_than: 1 , message: "can't be blank"}
-  validates :trading_days_id, numericality: { other_than: 1 , message: "can't be blank"}
+  validates :trading_day_id, numericality: { other_than: 1 , message: "can't be blank"}
 end

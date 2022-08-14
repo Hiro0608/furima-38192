@@ -9,7 +9,7 @@ class CreateItems < ActiveRecord::Migration[6.0]
       t.integer    :status_id, null: false
       t.integer    :trading_price_id, null: false
       t.integer    :trading_area_id, null: false
-      t.integer    :trading_days_id, null: false
+      t.integer    :trading_day_id, null: false
       t.timestamps
     end
   end
