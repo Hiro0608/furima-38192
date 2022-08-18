@@ -4,6 +4,7 @@ RSpec.describe OrderForm, type: :model do
   before do
     @order_form = FactoryBot.build(:order_form)
   end
+  
 
   describe '配送先情報の保存' do
     context '配送先情報の保存ができるとき' do

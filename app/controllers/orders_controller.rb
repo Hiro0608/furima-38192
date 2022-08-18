@@ -4,13 +4,10 @@ before_action :non_purchased_item, only: [:index, :create]
 
   def index
     @order_form = OrderForm.new
-    @item = Item.find(params[:item_id])
-    @image = params[:image]
   end
 
   def create
     @order_form = OrderForm.new(order_params)
-    @item = Item.find(params[:item_id])
     if @order_form.valid?
       pay_item
       @order_form.save
