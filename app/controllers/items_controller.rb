@@ -47,7 +47,7 @@ before_action :set_item, only: [:show, :edit, :update, :destroy]
   private
 
   def item_params
-    params.require(:item).permit(:image, :name, :price, :introduction, :category_id, :status_id, :trading_price_id, :trading_area_id, :trading_day_id, :price).merge(user_id: current_user.id)
+    params.require(:item).permit(:image, :name, :price, :introduction, :category_id, :status_id, :trading_price_id, :trading_area_id, :trading_day_id).merge(user_id: current_user.id)
   end
 
   def set_item
