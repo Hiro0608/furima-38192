@@ -52,9 +52,9 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include("Trading area can't be blank")
       end
       it "発送までの日数がなければ登録できない" do
-        @item.trading_days_id = ''
+        @item.trading_day_id = ''
         @item.valid?
-        expect(@item.errors.full_messages).to include("Trading days can't be blank")
+        expect(@item.errors.full_messages).to include("Trading day can't be blank")
       end
       it "カテゴリーに「---」が選択されている場合は出品できない" do
         @item.category_id = '1'
@@ -77,9 +77,9 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include("Trading area can't be blank")
       end
       it "発送までの日数に「---」が選択されている場合は出品できない" do
-        @item.trading_days_id = '1'
+        @item.trading_day_id = '1'
         @item.valid?
-        expect(@item.errors.full_messages).to include("Trading days can't be blank")
+        expect(@item.errors.full_messages).to include("Trading day can't be blank")
       end
       it "userが紐付いていない場合は登録できない" do
         @item.user = nil

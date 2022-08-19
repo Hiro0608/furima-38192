@@ -19,11 +19,9 @@ before_action :set_item, only: [:show, :edit, :update, :destroy]
     end
   end
 
-  def show
-  end
-
   def edit
-    unless current_user == @item.user
+    if @item.user_id == current_user.id && @item.order.nil?
+    else
       redirect_to root_path 
     end
   end
@@ -34,6 +32,9 @@ before_action :set_item, only: [:show, :edit, :update, :destroy]
     else
       render :new
     end
+  end
+
+  def show
   end
 
   def destroy
