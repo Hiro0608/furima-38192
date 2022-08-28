@@ -62,17 +62,17 @@ RSpec.describe OrderForm, type: :model do
       it '郵便番号が空だと保存できないこと' do
         @order_form.post_code = ''
         @order_form.valid?
-        expect(@order_form.errors.full_messages).to include("Post code can't be blank", 'Post code is invalid. Include hyphen(-)')
+        expect(@order_form.errors.full_messages).to include('Post code はハイフン(-)の記載は必要です')
       end
       it '郵便番号にハイフンがないと保存できないこと' do
         @order_form.post_code = 0_000_000
         @order_form.valid?
-        expect(@order_form.errors.full_messages).to include('Post code is invalid. Include hyphen(-)')
+        expect(@order_form.errors.full_messages).to include('Post code はハイフン(-)の記載は必要です')
       end
       it '都道府県が「---」だと保存できないこと' do
         @order_form.trading_area_id = 1
         @order_form.valid?
-        expect(@order_form.errors.full_messages).to include("Trading area can't be blank")
+        expect(@order_form.errors.full_messages).to include("Trading area を選択してください")
       end
       it '都道府県が空だと保存できないこと' do
         @order_form.trading_area_id = ''
@@ -97,17 +97,17 @@ RSpec.describe OrderForm, type: :model do
       it '電話番号にハイフンがあると保存できないこと' do
         @order_form.phone_number = '123 - 1234 - 1234'
         @order_form.valid?
-        expect(@order_form.errors.full_messages).to include('Phone number is invalid')
+        expect(@order_form.errors.full_messages).to include('Phone number はハイフン(-)の記載は必要ありません')
       end
       it '電話番号が12桁以上あると保存できないこと' do
         @order_form.phone_number = 12_345_678_910_123_111
         @order_form.valid?
-        expect(@order_form.errors.full_messages).to include('Phone number is invalid')
+        expect(@order_form.errors.full_messages).to include('Phone number はハイフン(-)の記載は必要ありません')
       end
       it '電話番号が9桁以下では登録できないこと' do
         @order_form.phone_number = 12_345
         @order_form.valid?
-        expect(@order_form.errors.full_messages).to include('Phone number is invalid')
+        expect(@order_form.errors.full_messages).to include('Phone number はハイフン(-)の記載は必要ありません')
       end
       it 'トークンが空だと保存できないこと' do
         @order_form.token = ''
