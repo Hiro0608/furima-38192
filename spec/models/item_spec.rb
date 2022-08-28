@@ -34,52 +34,52 @@ RSpec.describe Item, type: :model do
       it "カテゴリーがなければ登録できない" do
         @item.category_id = ''
         @item.valid?
-        expect(@item.errors.full_messages).to include("Category can't be blank")
+        expect(@item.errors.full_messages).to include("Category を選択してください")
       end
       it "商品の状態がなければ登録できない" do
         @item.status_id = ''
         @item.valid?
-        expect(@item.errors.full_messages).to include("Status can't be blank")
+        expect(@item.errors.full_messages).to include("Status を選択してください")
       end
       it "配送料の負担がなければ登録できない" do
         @item.trading_price_id = ''
         @item.valid?
-        expect(@item.errors.full_messages).to include("Trading price can't be blank")
+        expect(@item.errors.full_messages).to include("Trading price を選択してください")
       end
       it "発送元の地域がなければ登録できない" do
         @item.trading_area_id = ''
         @item.valid?
-        expect(@item.errors.full_messages).to include("Trading area can't be blank")
+        expect(@item.errors.full_messages).to include("Trading area を選択してください")
       end
       it "発送までの日数がなければ登録できない" do
         @item.trading_day_id = ''
         @item.valid?
-        expect(@item.errors.full_messages).to include("Trading day can't be blank")
+        expect(@item.errors.full_messages).to include("Trading day を選択してください")
       end
       it "カテゴリーに「---」が選択されている場合は出品できない" do
         @item.category_id = '1'
         @item.valid?
-        expect(@item.errors.full_messages).to include("Category can't be blank")
+        expect(@item.errors.full_messages).to include("Category を選択してください")
       end
       it "商品の状態に「---」が選択されている場合は出品できない" do
         @item.status_id = '1'
         @item.valid?
-        expect(@item.errors.full_messages).to include("Status can't be blank")
+        expect(@item.errors.full_messages).to include("Status を選択してください")
       end
       it "配送料の負担に「---」が選択されている場合は出品できない" do
         @item.trading_price_id = '1'
         @item.valid?
-        expect(@item.errors.full_messages).to include("Trading price can't be blank")
+        expect(@item.errors.full_messages).to include("Trading price を選択してください")
       end
       it "発送元の地域に「---」が選択されている場合は出品できない" do
         @item.trading_area_id = '1'
         @item.valid?
-        expect(@item.errors.full_messages).to include("Trading area can't be blank")
+        expect(@item.errors.full_messages).to include("Trading area を選択してください")
       end
       it "発送までの日数に「---」が選択されている場合は出品できない" do
         @item.trading_day_id = '1'
         @item.valid?
-        expect(@item.errors.full_messages).to include("Trading day can't be blank")
+        expect(@item.errors.full_messages).to include("Trading day を選択してください")
       end
       it "userが紐付いていない場合は登録できない" do
         @item.user = nil
